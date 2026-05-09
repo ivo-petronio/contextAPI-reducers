@@ -11,13 +11,36 @@ function TodosList() {
 
   const [tasks, setTasks] = useState(initialTodos)
 
+  function eraseTask(id) {
+    setTasks( oldstate => {
+      return oldstate.filter( item => item.id !== id)
+    })
+  }
+
+  function modifyTask(id) {
+    setTasks( oldstate => {
+      return oldstate.filter( item => {
+        if (item.id === id ) {
+          item.isDone = !item.isDone
+        }
+        console.log(item)
+        return [
+          ...oldstate, item
+        ]
+      })
+    })
+  }
+
   return (
     <>
       <div className="todos">
         {
           tasks.map( task =>
             <Todo
+              key={task.id}
               task={task}
+              deleteTask={ id => eraseTask(id) }
+              completeTask={ id => modifyTask(id) }
             />
           )
         }

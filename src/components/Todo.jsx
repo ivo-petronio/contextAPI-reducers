@@ -1,21 +1,21 @@
 import './Todo.scss'
 
-function Todo({ title, description, isDone }) {
+function Todo({ task }) {
 
   return (
     <>
-        <div className={`todo ${isDone ? 'done' : ''}`}>
+        <div className={`todo ${task.isDone ? 'done' : ''}`}>
             <button className="erase">x erase</button>
             <h3>
-                {title}
+                {task.title}
             </h3>
             <p>
-                {description}
+                {task.description}
             </p>
             <div className="task-check">
-                <input type="checkbox" checked={isDone} />
+                <input type="checkbox" checked={task.isDone} />
                 <label>
-                    {!isDone ? 'To-Do' : 'Done'}
+                    {!task.isDone ? 'To-Do' : 'Done'}
                 </label>
             </div>
         </div>

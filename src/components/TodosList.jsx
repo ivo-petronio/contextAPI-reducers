@@ -17,9 +17,7 @@ function TodosList() {
         {
           tasks.map( task =>
             <Todo
-              title={task.title}
-              description={task.description}
-              isDone={task.isDone}
+              task={task}
             />
           )
         }

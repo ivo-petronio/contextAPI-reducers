@@ -25,7 +25,7 @@ function Todo({ task, deleteTask, completeTask }) {
                     defaultChecked={task.isDone}
                     onChange={ () => completeTask(task.id) }    
                 />
-                <label for={task.title}>
+                <label htmlFor={task.title}>
                     {!task.isDone ? 'To-Do' : 'Done'}
                 </label>
             </div>

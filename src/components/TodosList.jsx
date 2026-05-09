@@ -11,13 +11,14 @@ function TodosList() {
 
   const [tasks, setTasks] = useState(initialTodos)
 
-  function eraseTask(id) {
-    setTasks( oldstate => {
-      return oldstate.filter( item => item.id !== id)
-    })
+  function eraseHandler(id) {
+    if(confirm("Are you sure you want to delete this task?"))
+    {
+      setTasks( oldstate => oldstate.filter( item => item.id !== id) )
+    }
   }
 
-  function modifyTask(id) {
+  function completeHandler(id) {
     setTasks( oldstate => {
       return oldstate.filter( item => {
         if (item.id === id ) {
@@ -39,8 +40,8 @@ function TodosList() {
             <Todo
               key={task.id}
               task={task}
-              deleteTask={ id => eraseTask(id) }
-              completeTask={ id => modifyTask(id) }
+              deleteTask={ id => eraseHandler(id) }
+              completeTask={ id => completeHandler(id) }
             />
           )
         }

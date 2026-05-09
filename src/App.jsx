@@ -14,11 +14,11 @@ const initialTodos = [
 
 function App() {
 
-  const [tasks, setTasks] = useState()
+  const [tasks, setTasks] = useState(initialTodos)
 
   return (
     <>
-      <TaskController.Provider value={ {tasks, setTasks} }>
+      <TasksContext.Provider value={ {tasks, setTasks} }>
         <main>
           
           <Header appName="To-Do List with React" />
@@ -28,7 +28,7 @@ function App() {
           <Footer />
 
         </main>
-      </TaskController.Provider>
+      </TasksContext.Provider>
     </>
   )
 }

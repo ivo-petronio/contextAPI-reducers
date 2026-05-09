@@ -2,9 +2,9 @@ import Todo from './Todo.jsx';
 import { useState } from 'react'
 
 const initialTodos = [
-  { id: 0, title: 'Do Groceries', description: 'Buy apples, rice, juice and toilet paper.', isDone: true },
-  { id: 1, title: 'Study React', description: 'Understand context & reducers.', isDone: false},
-  { id: 2, title: 'Learn Redux', description: 'Learn state management with Redux', isDone: false }
+  { id: 0, title: 'Banho do Fry', description: 'Banhar com shampoo Huggies e Cetoconazol', isDone: false },
+  { id: 1, title: 'Banho da Bulma', description: 'Banhar com shampoo miconazol e clorexidina', isDone: false },
+  { id: 2, title: 'Banho da Leela', description: 'Banhar com shapoo Huggies', isDone: false }
 ];
 
 function TodosList() {
@@ -13,21 +13,17 @@ function TodosList() {
 
   return (
     <>
-        <div className="todos">
-
+      <div className="todos">
+        {
+          tasks.map( task =>
             <Todo
-              title="Do Groceries"
-              description="Buy apples, rice, juice and toilet paper."
-              isDone={true}
+              title={task.title}
+              description={task.description}
+              isDone={task.isDone}
             />
-
-            <Todo
-              title="Study React"
-              description="Understand context, reducers and state management with Redux."  
-              isDone={false}
-            />
-
-        </div>
+          )
+        }
+      </div>
     </>
   )
 }

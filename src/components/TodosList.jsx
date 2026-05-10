@@ -6,20 +6,6 @@ function TodosList() {
 
   const store = useContext(TasksContext)
 
-  function eraseHandler(id) {
-    store.dispatch({
-      type: 'deleted',
-      id: id
-    })
-  }
-
-  function completeHandler(id) {
-    store.dispatch({
-      type: 'completed',
-      id: id
-    })
-  }
-
   return (
     <>
       <div className="todos">
@@ -28,8 +14,6 @@ function TodosList() {
             <Todo
               key={task.id}
               task={task}
-              deleteTask={ id => eraseHandler(id) }
-              completeTask={ id => completeHandler(id) }
             />
           )
         }

@@ -6,25 +6,17 @@ function TodosList() {
 
   const store = useContext(TasksContext)
 
-
   function eraseHandler(id) {
-    if(confirm("Are you sure you want to delete this task?"))
-    {
-      store.setTasks( oldstate => oldstate.filter( item => item.id !== id) )
-    }
+    store.dispatch({
+      type: 'deleted',
+      id: id
+    })
   }
 
   function completeHandler(id) {
-    store.setTasks( oldstate => {
-      return oldstate.filter( item => {
-        if (item.id === id ) {
-          item.isDone = !item.isDone
-        }
-        console.log(item)
-        return [
-          ...oldstate, item
-        ]
-      })
+    store.dispatch({
+      type: 'completed',
+      id: id
     })
   }
 

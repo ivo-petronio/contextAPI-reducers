@@ -1,11 +1,10 @@
 import Todo from './Todo.jsx';
-import { useContext } from 'react'
-import { TasksContext } from './Context'
+import { useTasks } from './TasksProvider.jsx'
 
 function TodosList() {
 
-  const store = useContext(TasksContext)
-fjsdklfjsklfjsdklfjsklfjsfkljsçkl
+  const store = useTasks()
+
   return (
     <>
       <div className="todos">

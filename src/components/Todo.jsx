@@ -1,10 +1,9 @@
 import './Todo.scss'
-import { useContext } from 'react'
-import { TasksContext } from './Context'
+import { useTasks } from './TasksProvider'
 
 function Todo({ task }) {
 
-    const store = useContext(TasksContext)
+    const store = useTasks()
 
     return (
         <>
